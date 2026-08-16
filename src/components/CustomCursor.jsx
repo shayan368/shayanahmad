@@ -79,12 +79,6 @@ export default function CustomCursor() {
 
   const dotX = useMotionValue(-100);
   const dotY = useMotionValue(-100);
-  // ring trails slightly behind the dot for a "drop" / inertia feel
-  const ringX = useSpring(dotX, { stiffness: 150, damping: 20, mass: 0.6 });
-  const ringY = useSpring(dotY, { stiffness: 150, damping: 20, mass: 0.6 });
-  // outer glow trails even further behind, exaggerating the drag
-  const glowX = useSpring(dotX, { stiffness: 60, damping: 18, mass: 1 });
-  const glowY = useSpring(dotY, { stiffness: 60, damping: 18, mass: 1 });
 
   const mixedColor = useColorCycle(6);
 
@@ -133,9 +127,7 @@ export default function CustomCursor() {
 
   if (!enabled) return null;
 
-  const dotSize = hovering ? 14 : 8;
-  const ringSize = hovering ? 56 : 32;
-  const glowSize = hovering ? 110 : 70;
+  const dotSize = hovering ? 24 : 12;
 
   return (
     <div
@@ -143,39 +135,7 @@ export default function CustomCursor() {
       className="pointer-events-none fixed inset-0 z-[9999]"
       style={{ opacity: visible ? 1 : 0, transition: "opacity 0.2s ease" }}
     >
-      {/* outer soft glow, slowest trail */}
-      <motion.div
-        className="absolute rounded-full"
-        style={{
-          width: glowSize,
-          height: glowSize,
-          left: glowX,
-          top: glowY,
-          translateX: "-50%",
-          translateY: "-50%",
-          background: mixedColor,
-          opacity: hovering ? 0.28 : 0.16,
-          filter: "blur(18px)",
-        }}
-        transition={{ type: "tween", duration: 0.25 }}
-      />
 
-      {/* mid ring, medium trail */}
-      <motion.div
-        className="absolute rounded-full"
-        style={{
-          width: ringSize,
-          height: ringSize,
-          left: ringX,
-          top: ringY,
-          translateX: "-50%",
-          translateY: "-50%",
-          border: `1.5px solid ${mixedColor}`,
-          background: "transparent",
-          opacity: hovering ? 0.9 : 0.55,
-        }}
-        transition={{ type: "tween", duration: 0.25 }}
-      />
 
       {/* core dot, follows pointer almost exactly */}
       <motion.div

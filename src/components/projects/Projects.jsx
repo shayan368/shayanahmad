@@ -107,7 +107,9 @@ const Projects = () => {
           relative
           max-w-7xl
           mx-auto
-          h-[540px]
+          h-auto
+          py-4
+          md:py-8
 
           flex
           items-center
@@ -225,7 +227,9 @@ const Projects = () => {
 
               <div
                 className="
-                  h-[240px]
+                  h-[180px]
+                  sm:h-[200px]
+                  md:h-[240px]
                   overflow-hidden
                 "
               >
@@ -248,10 +252,11 @@ const Projects = () => {
 
               {/* Content */}
 
-              <div className="p-6">
+              <div className="p-5 md:p-6">
                 <h3
                   className="
-                    text-2xl
+                    text-xl
+                    md:text-2xl
                     font-bold
                   "
                 >
@@ -260,7 +265,10 @@ const Projects = () => {
 
                 <p
                   className="
-                    mt-4
+                    mt-3
+                    md:mt-4
+                    text-sm
+                    md:text-base
                     text-zinc-600
                     dark:text-zinc-400
                     leading-relaxed
@@ -288,7 +296,8 @@ const Projects = () => {
 
                           rounded-full
 
-                          text-sm
+                          text-xs
+                          md:text-sm
 
                           bg-cyan-500/10
                           text-cyan-400
@@ -302,11 +311,13 @@ const Projects = () => {
 
                 <div
                   className="
-                    mt-6
+                    mt-5
+                    md:mt-6
 
                     flex
                     flex-wrap
-                    gap-3
+                    gap-2
+                    md:gap-3
                   "
                 >
                   <a
@@ -318,8 +329,13 @@ const Projects = () => {
                       items-center
                       gap-2
 
-                      px-5
-                      py-3
+                      px-4
+                      py-2
+                      md:px-5
+                      md:py-3
+
+                      text-sm
+                      md:text-base
 
                       rounded-xl
 
@@ -335,31 +351,104 @@ const Projects = () => {
                     Live Demo
                   </a>
 
-                  <a
-                    href={projects[current].github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="
-                      flex
-                      items-center
-                      gap-2
+                  {projects[current].github && (
+                    <a
+                      href={projects[current].github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="
+                        flex
+                        items-center
+                        gap-2
 
-                      px-5
-                      py-3
+                        px-4
+                        py-2
+                        md:px-5
+                        md:py-3
 
-                      rounded-xl
+                        text-sm
+                        md:text-base
 
-                      border
-                      border-white/10
+                        rounded-xl
 
-                      hover:border-cyan-500/50
+                        border
+                        border-white/10
 
-                      transition
-                    "
-                  >
-                    <RiGithubLine size={18} />
-                    GitHub
-                  </a>
+                        hover:border-cyan-500/50
+
+                        transition
+                      "
+                    >
+                      <RiGithubLine size={18} />
+                      GitHub
+                    </a>
+                  )}
+
+                  {projects[current].githubFrontend && (
+                    <a
+                      href={projects[current].githubFrontend}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="
+                        flex
+                        items-center
+                        gap-2
+
+                        px-4
+                        py-2
+                        md:px-5
+                        md:py-3
+
+                        text-sm
+                        md:text-base
+
+                        rounded-xl
+
+                        border
+                        border-white/10
+
+                        hover:border-cyan-500/50
+
+                        transition
+                      "
+                    >
+                      <RiGithubLine size={18} />
+                      Frontend
+                    </a>
+                  )}
+
+                  {projects[current].githubBackend && (
+                    <a
+                      href={projects[current].githubBackend}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="
+                        flex
+                        items-center
+                        gap-2
+
+                        px-4
+                        py-2
+                        md:px-5
+                        md:py-3
+
+                        text-sm
+                        md:text-base
+
+                        rounded-xl
+
+                        border
+                        border-white/10
+
+                        hover:border-cyan-500/50
+
+                        transition
+                      "
+                    >
+                      <RiGithubLine size={18} />
+                      Backend
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

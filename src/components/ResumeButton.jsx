@@ -5,7 +5,7 @@ const ResumeButton = () => {
   return (
     <motion.a
       href="/shayan-cv.pdf"
-      download
+      download="shayan-cv.pdf" 
       whileHover={{
         scale: 1.05,
       }}

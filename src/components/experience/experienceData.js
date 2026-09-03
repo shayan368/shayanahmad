@@ -33,4 +33,20 @@ export const experienceData = [
       "Built production-ready applications using professional development workflows.",
     ],
   },
+
+  {
+    id: 3,
+    type: "Internship",
+    company: "Saylani Mass IT Training (SMIT), Peshawar",
+    role: "Bootcamp Intern",
+    period: "2026",
+    status: "Present",
+    points: [
+      "Participated in an intensive bootcamp internship focusing on full-stack development.",
+      "Contributed to the development, architecture, and deployment of a scalable SaaS (Software as a Service) product.",
+      "Gained hands-on experience by building and deploying real-world web applications.",
+      "Collaborated with teams to solve complex technical challenges and optimize code.",
+      "Enhanced proficiency in modern web technologies and industry best practices."
+    ],
+  },
 ];
